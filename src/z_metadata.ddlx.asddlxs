@@ -1,0 +1,58 @@
+@Metadata.layer: #CORE
+annotate entity ZP_Leave
+    with 
+{
+
+@UI.facet: [{ id: 'HeaderFacet',
+              purpose: #HEADER,
+              type: #FIELDGROUP_REFERENCE,
+              label: 'Employee Details',
+              targetQualifier: 'HeaderItems',
+              position: 5 },{ type: #IDENTIFICATION_REFERENCE }]
+              
+//@UI.facet: [{ type: #IDENTIFICATION_REFERENCE, position: 10 }]
+@UI.fieldGroup: [{ qualifier: 'HeaderItems', position: 10, label: 'Request Id' }]  
+@UI.lineItem: [{ position: 10, label: 'Request ID' }]
+@UI.identification: [{ position: 10,label: 'Request ID' }]
+    RequestId;
+    
+@UI.fieldGroup: [{ qualifier: 'HeaderItems', position: 20, label: 'Employee Id' }]    
+@UI.identification: [{ position: 20,label: 'Employee Id' }]
+@UI.lineItem: [{ position: 20, label: 'Employee Id' }]    
+    EmployeeId;
+    
+@UI.fieldGroup: [{ qualifier: 'HeaderItems', position: 30, label: 'Leave Type' }]      
+@UI.identification: [{ position: 30,label: 'Leave Type' }]
+@UI.lineItem: [{ position: 30, label: 'Leave Type' }]    
+    LeaveType;
+
+@UI.identification: [{ position: 40,label: 'Start Date' }]
+@UI.lineItem: [{ position: 40, label: 'Start Date' }]    
+    Startdate;
+    
+@UI.identification: [{ position: 50,label: 'End Date' }]
+@UI.lineItem: [{ position: 50, label: 'End Date' }]    
+    EndDate;
+
+@UI.identification: [{ position: 60,label: 'Status' }]
+@UI.lineItem: [{ position: 60, label: 'Status' }]    
+    Status;
+
+@UI.identification: [{ position: 70,label: 'Created By' }]
+@UI.lineItem: [{ position: 70, label: 'Created By' }]    
+    CreatedBy;
+    
+@UI.identification: [{ position: 80,label: 'Created On' }]
+@UI.lineItem: [{ position: 80, label: 'Created On' }]    
+    CreatedOn;
+    
+@UI.identification: [{ position: 90,label: 'Approved By' }]
+@UI.lineItem: [{ position: 90, label: 'Approved By' }]    
+    ApprovedBy;
+    
+@UI.identification: [{ position: 100,label: 'Approved On' }]
+@UI.lineItem: [{ position: 100, label: 'Approved On' }]    
+    ApprovedOn;
+    
+    
+}

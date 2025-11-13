@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service defination'
+define service Z_ServiceDefination {
+  expose ZProj_leave;
+}
