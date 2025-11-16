@@ -11,14 +11,10 @@ ENDCLASS.
 
 
 
-CLASS z_data_insertion_class IMPLEMENTATION.
-
-
+CLASS Z_DATA_INSERTION_CLASS IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
 
   ENDMETHOD.
-
-
 ENDCLASS.
