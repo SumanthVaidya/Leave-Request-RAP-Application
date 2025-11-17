@@ -11,7 +11,7 @@ association to ZI_Leaveworkflow as _Leaveworkflow on $projection.RequestId = _Le
     key RequestId,
     EmployeeId,
     LeaveType,
-    Startdate,
+    StartDate,
     EndDate,
     Status,
     CreatedBy,
