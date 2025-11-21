@@ -3,7 +3,19 @@ puBLIC SECTION.
  class-data: lcl_create type table of zleaverequest_db.
  class-data: lcl_update type table of zleaverequest_db.
  class-data: lcl_delete type table of zleaverequest_db.
+
+class-METHODS : get_request_id RETURNING VALUE(new_request_id) type int1.
 endCLASS.
+
+CLASS lcl_class IMPLEMENTATION.
+
+  METHOD get_request_id.
+
+   seleCT max( request_id ) from zleaverequest_db into @new_request_id.
+   new_request_id = new_request_id + 1.
+  ENDMETHOD.
+
+ENDCLASS.
 
 CLASS lhc_ZC_CDS_Leave DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
@@ -29,6 +41,7 @@ CLASS lhc_ZC_CDS_Leave DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS lock FOR LOCK
       IMPORTING keys FOR LOCK ZC_CDS_Leave.
 
+
 ENDCLASS.
 
 CLASS lhc_ZC_CDS_Leave IMPLEMENTATION.
@@ -43,7 +56,6 @@ CLASS lhc_ZC_CDS_Leave IMPLEMENTATION.
 
  lcl_class=>lcl_create = CORRESPONDING #( entities
  mapping
-  request_id = RequestId
   employee_id = EmployeeId
   leave_type = LeaveType
   start_date = Startdate
@@ -55,15 +67,16 @@ CLASS lhc_ZC_CDS_Leave IMPLEMENTATION.
   approved_on = ApprovedOn
   ).
 
-  ENDMETHOD.
+  loop at lcl_class=>lcl_create assIGNING fIELD-SYMBOL(<wa_area>).
+  <wa_area>-request_id = lcl_class=>get_request_id(  ).
+  endloop.
 
+  ENDMETHOD.
   METHOD update.
 
   data it_structure TYPE zleaverequest_db.
 
    data it_update type table of zleaverequest_db.
-
-
 
   seleCT * from zleaverequest_db
      for ALL ENTRIES IN @entities
@@ -110,20 +123,14 @@ CLASS lhc_ZC_CDS_Leave IMPLEMENTATION.
    inSERT it_structure into table lcl_class=>lcl_update.
 
    endLOOP.
-
 endif.
-
   ENDMETHOD.
 
   METHOD delete.
-
   seleCT * from zleaverequest_db
      for ALL ENTRIES IN @keys
        where request_id = @keys-RequestId into taBLE @data(it_table_data).
-
  lcl_class=>lcl_delete = it_table_data.
-
-
   ENDMETHOD.
 
   METHOD read.
@@ -158,6 +165,7 @@ CLASS lsc_ZC_CDS_LEAVE IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD save.
+
 
   if lcl_class=>lcl_create is not inITIAL.
      data it_tab type table of zleaverequest_db.

@@ -3,14 +3,16 @@ strict ( 2 );
 
 define behavior for ZC_CDS_Leave //alias <alias_name>
 //late numbering
+// early numbering
 lock master
 authorization master ( instance )
 //etag master <field_name>
 {
+
   create ( authorization : global );
   update;
   delete;
- // field ( readonly ) RequestId;
+  field ( readonly ) RequestId;
 
   mapping for ZLEAVEREQUEST_DB {
   EmployeeId = employee_id;
