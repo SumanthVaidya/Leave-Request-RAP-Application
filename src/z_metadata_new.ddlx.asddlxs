@@ -27,13 +27,13 @@ annotate entity ZProj_leave
 
 @UI.identification: [{ position: 40,label: 'Start Date' }]
 @UI.lineItem: [{ position: 40, label: 'Start Date' }]    
-    Startdate;
+    StartDate;
     
 @UI.identification: [{ position: 50,label: 'End Date' }]
 @UI.lineItem: [{ position: 50, label: 'End Date' }]    
     EndDate;
 
-@UI.identification: [{ position: 60,label: 'Status' }]
+//@UI.identification: [{ position: 60,label: 'Status' }]
 @UI.lineItem: [{ position: 60, label: 'Status' }]    
     Status;
 
@@ -41,15 +41,15 @@ annotate entity ZProj_leave
 @UI.lineItem: [{ position: 70, label: 'Created By' }]    
     CreatedBy;
     
-@UI.identification: [{ position: 80,label: 'Created On' }]
+//@UI.identification: [{ position: 80,label: 'Created On' }]
 @UI.lineItem: [{ position: 80, label: 'Created On' }]    
     CreatedOn;
     
-@UI.identification: [{ position: 90,label: 'Approved By' }]
+//@UI.identification: [{ position: 90,label: 'Approved By' }]
 @UI.lineItem: [{ position: 90, label: 'Approved By' }]    
     ApprovedBy;
     
-@UI.identification: [{ position: 100,label: 'Approved On' }]
+//@UI.identification: [{ position: 100,label: 'Approved On' }]
 @UI.lineItem: [{ position: 100, label: 'Approved On' }]    
     ApprovedOn;
     

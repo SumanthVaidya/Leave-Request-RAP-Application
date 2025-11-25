@@ -1,20 +1,30 @@
 unmanaged implementation in class zbp_c_cds_leave unique;
 strict ( 2 );
+ with draft;
+
+
 
 define behavior for ZC_CDS_Leave //alias <alias_name>
 //late numbering
-// early numbering
-lock master
-authorization master ( instance )
-//etag master <field_name>
+ early numbering
+ draft table zdraft_tb
+ lock master
+ total etag CreatedOn
+ authorization master ( instance )
+ etag master CreatedOn
 {
 
   create ( authorization : global );
   update;
   delete;
   field ( readonly ) RequestId;
+  draft action Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Resume;
+  draft action Discard;
+  draft determine action Prepare;
 
-  mapping for ZLEAVEREQUEST_DB {
+    mapping for ZLEAVEREQUEST_DB {
   EmployeeId = employee_id;
   RequestId = request_id;
   LeaveType = leave_type;

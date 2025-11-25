@@ -3,7 +3,8 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 @ObjectModel.resultSet.sizeCategory: #XS
-define root view entity ZProj_leave as projection on ZC_CDS_Leave
+define root view entity ZProj_leave
+  provider contract transactional_query as projection on ZC_CDS_Leave
 {
     key RequestId,
     EmployeeId,

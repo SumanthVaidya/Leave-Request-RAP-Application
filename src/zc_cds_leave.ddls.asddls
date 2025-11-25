@@ -2,6 +2,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Composite CDS View'
 @Metadata.ignorePropagatedAnnotations: true
+//@ObjectModel.draftEnabled: true
 @Metadata.allowExtensions: true
 define root view entity ZC_CDS_Leave as select from ZI_Leaverequest as Leaverequest
 association to ZI_Leavetype as _Leavetype on $projection.LeaveType = _Leavetype.LeaveType
